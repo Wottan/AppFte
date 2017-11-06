@@ -1,7 +1,10 @@
 package persona;
 
+import javax.persistence.MappedSuperclass;
+
 import org.openxava.model.Identifiable;
 
+@MappedSuperclass
 public class Persona extends Identifiable {
 
 	private String nombreYApellido;
