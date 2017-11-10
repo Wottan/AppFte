@@ -2,23 +2,26 @@ package persona;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Entity;
 
+import org.openxava.annotations.NoFrame;
 import org.openxava.annotations.Required;
 import org.openxava.annotations.Stereotype;
 import org.openxava.model.Identifiable;
 
-@MappedSuperclass
+@Entity
 public class Persona extends Identifiable {
 
 	@Column(length = 8, unique = true)
+	@Required
 	private Long dni;
 
-	@Column(unique = true)
+	@Column(length = 11, unique = true)
+	@Required
 	private String cuil;
 
 	@Embedded
+	@NoFrame
 	private Direccion direccion;
 
 	@Required
@@ -26,14 +29,6 @@ public class Persona extends Identifiable {
 
 	@Stereotype("PHOTO")
 	private byte[] foto;
-
-	public String getNombreYApellido() {
-		return nombreYApellido;
-	}
-
-	public void setNombreYApellido(String nombreYApellido) {
-		this.nombreYApellido = nombreYApellido;
-	}
 
 	public Long getDni() {
 		return dni;
@@ -57,6 +52,14 @@ public class Persona extends Identifiable {
 
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
+	}
+
+	public String getNombreYApellido() {
+		return nombreYApellido;
+	}
+
+	public void setNombreYApellido(String nombreYApellido) {
+		this.nombreYApellido = nombreYApellido;
 	}
 
 	public byte[] getFoto() {

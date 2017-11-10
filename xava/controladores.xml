@@ -3,22 +3,25 @@
 <!DOCTYPE controladores SYSTEM "dtds/controladores.dtd">
 
 <controladores>
-    
-    <!-- Variable de entorno: 
-    <var-entorno nombre="AppFte_ANYO_DEFECTO" valor="2015"/>
-    -->
-    
-    <!-- Objeto de sesión:
-    <Objeto nombre="AppFte_anyoActivo" clase="java.lang.Integer" valor="2015" 
-            ambito="global"/>
-    -->
-    
-    <!-- Controlador:
-    <controlador nombre="Profesor">
-        <hereda-de controlador="Typical"/>
-        <accion nombre="new" icono="library-plus" atajo-de-teclado="Control N" 
-                clase="acciones.CrearProfesor"/>        
-    </controlador>
-    -->
-    
+
+	<!-- Variable de entorno: <var-entorno nombre="AppFte_ANYO_DEFECTO" valor="2015"/> -->
+
+	<!-- Objeto de sesión: <Objeto nombre="AppFte_anyoActivo" clase="java.lang.Integer" 
+		valor="2015" ambito="global"/> -->
+
+	<!-- Controlador: <controlador nombre="Profesor"> <hereda-de controlador="Typical"/> 
+		<accion nombre="new" icono="library-plus" atajo-de-teclado="Control N" clase="acciones.CrearProfesor"/> 
+		</controlador> -->
+
+	<controlador nombre="TutorCreation">
+		<hereda-de controlador="NewCreation" />
+		<accion nombre="new" oculta="true" clase="persona.control.CrearNuevoTutor">
+		</accion>
+	</controlador>
+
+	<controlador nombre="TutorModification">
+		<hereda-de controlador="Modification" />
+		<accion nombre="search" oculta="true" clase="persona.control.ModificarTutor">
+		</accion>
+	</controlador>
 </controladores>

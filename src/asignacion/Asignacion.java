@@ -1,5 +1,13 @@
 package asignacion;
 
-public class Asignacion {
+import javax.persistence.Entity;
+
+import org.openxava.model.Identifiable;
+
+@Entity
+public class Asignacion extends Identifiable{
+	
+
+	
 
 }
