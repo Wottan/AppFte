@@ -70,4 +70,6 @@ public class Persona extends Identifiable {
 		this.foto = foto;
 	}
 
+	
+	
 }

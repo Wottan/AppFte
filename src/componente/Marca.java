@@ -5,14 +5,16 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import org.openxava.annotations.*;
 import org.openxava.model.Identifiable;
 
 @Entity
+@Views({ @View(name = "MuySimple", members = "descripcion") })
 public class Marca extends Identifiable {
 
 	private String descripcion;
 
-	@OneToMany(mappedBy="marca")
+	@OneToMany(mappedBy = "marca")
 	private List<Modelo> modelos;
 
 	public String getDescripcion() {

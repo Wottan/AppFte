@@ -4,15 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.openxava.annotations.DescriptionsList;
-import org.openxava.annotations.NoCreate;
-import org.openxava.annotations.NoModify;
-import org.openxava.annotations.Required;
-import org.openxava.annotations.View;
-import org.openxava.annotations.Views;
+import org.openxava.annotations.*;
 
 @Entity
-@Views({ @View(members = "Datos[tipo;serie];Marca[marca;modelo]") })
+@Views({ @View(members = "Datos[tipo;serie];Marca[marca;modelo]"), @View(name = "Simple", members = "serie,tipo;marca") })
 public class Componente {
 
 	@Id
@@ -20,6 +15,7 @@ public class Componente {
 
 	@ManyToOne
 	@DescriptionsList
+	@ReferenceView("MuySimple")
 	private Marca marca;
 
 	@ManyToOne
