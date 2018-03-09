@@ -1,15 +1,12 @@
 package persona;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
-import org.openxava.annotations.NoFrame;
-import org.openxava.annotations.Required;
-import org.openxava.annotations.Stereotype;
+import org.openxava.annotations.*;
 import org.openxava.model.Identifiable;
 
-@Entity
+@MappedSuperclass
+@Views({ @View(name = "Completa", members = "dni;cuil;nombreYApellido;foto;tipo") })
 public class Persona extends Identifiable {
 
 	@Column(length = 8, unique = true)
@@ -70,6 +67,8 @@ public class Persona extends Identifiable {
 		this.foto = foto;
 	}
 
-	
-	
+	public String getTipo() {
+		return this.getClass().getSimpleName();
+	}
+
 }

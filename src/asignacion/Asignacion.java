@@ -11,7 +11,8 @@ import persona.*;
 @Entity
 public class Asignacion extends Identifiable {
 
-	@ManyToOne
+	// @ManyToOne
+	@Transient
 	private Persona persona;
 
 	@ManyToOne
